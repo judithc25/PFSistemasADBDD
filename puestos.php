@@ -1,5 +1,5 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -18,17 +18,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn) {
         try {
             
-            // Preparar la consulta para insertar los datos en la tabla puestos
+            
             $sql = "INSERT INTO puestos (titulo_puesto, descripcion, id_salario) 
                     VALUES (:titulo_puesto, :descripcion, :id_salario)";
             $stmt = $conn->prepare($sql);
 
-            // Vincular los parámetros
+            
             $stmt->bindParam(':titulo_puesto', $titulo_puesto);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':id_salario', $id_salario);
 
-            // Ejecutar la consulta
+            
             if ($stmt->execute()) {
                 echo 'Registro exitoso.';
             } else {

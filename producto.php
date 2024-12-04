@@ -1,5 +1,5 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -20,19 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn) {
         try {
             
-            // Preparar la consulta para insertar los datos en la tabla productos
+            
             $sql = "INSERT INTO productos (nombre, cantidad, precio, fecha_vencimiento, fecha_ingreso) 
                     VALUES (:nombre, :cantidad, :precio, :fecha_vencimiento, :fecha_ingreso)";
             $stmt = $conn->prepare($sql);
 
-            // Vincular los parámetros
+            
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':cantidad', $cantidad);
             $stmt->bindParam(':precio', $precio);
             $stmt->bindParam(':fecha_vencimiento', $fecha_vencimiento);
             $stmt->bindParam(':fecha_ingreso', $fecha_ingreso);
 
-            // Ejecutar la consulta
+            
             if ($stmt->execute()) {
                 echo 'Registro exitoso.';
             } else {

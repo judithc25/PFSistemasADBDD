@@ -1,8 +1,8 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener datos del formulario
+   
     $nombre = $_POST['nombre'] ?? null;
     $apellido = $_POST['apellido'] ?? null;
     $fecha_nacimiento = $_POST['fecha_nacimiento'] ?? null;
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_puesto = $_POST['id_puesto'] ?? null;
     $id_horario = $_POST['id_horario'] ?? null;
 
-    // Validar campos obligatorios
+    
     if (!$nombre || !$apellido || !$fecha_nacimiento || !$direccion || !$telefono || !$correo_electronico || !$fecha_contratacion || !$id_departamento || !$id_puesto || !$id_horario) {
         echo 'Por favor, completa todos los campos obligatorios.';
         exit();
@@ -25,12 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($conn) {
         try {
-            // Insertar empleado
+            
             $sql = "INSERT INTO empleados (nombre, apellido, fecha_nacimiento, direccion, telefono, correo_electronico, fecha_contratacion, id_departamento, id_puesto, id_horario) 
                     VALUES (:nombre, :apellido, :fecha_nacimiento, :direccion, :telefono, :correo_electronico, :fecha_contratacion, :id_departamento, :id_puesto, :id_horario)";
             $stmt = $conn->prepare($sql);
 
-            // Asignar parámetros
+            
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':apellido', $apellido);
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':id_puesto', $id_puesto);
             $stmt->bindParam(':id_horario', $id_horario);
 
-            // Ejecutar consulta
+           
             if ($stmt->execute()) {
                 echo 'Empleado registrado con éxito.';
             } else {

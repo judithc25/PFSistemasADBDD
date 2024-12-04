@@ -89,12 +89,12 @@
         <option value="">Selecciona un horario</option>
         <?php
         if ($conn) {
-            // Preparamos y ejecutamos la consulta
+            
             $stmt = $conn->prepare("SELECT id_horario, dias FROM horarios");
             $stmt->execute();
             $horarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Iteramos sobre los resultados
+           
             foreach ($horarios as $horario) {
                 echo "<option value='{$horario['id_horario']}'>{$horario['dias']}</option>";
             }
@@ -150,7 +150,7 @@
           <select class="form-control" id="id_producto" name="id_producto" required>
             <option value="">Selecciona un producto</option>
             <?php
-              // Obtener productos desde la base de datos
+              
               if ($conn) {
                 $stmt = $conn->prepare("SELECT id_producto, nombre FROM productos");
                 $stmt->execute();
@@ -187,7 +187,7 @@
     <select class="form-control" id="id_proveedor" name="id_proveedor" required>
         <option value="">Selecciona un proveedor</option>
         <?php
-        // Conectar a la base de datos y obtener proveedores
+        
         require_once 'src/database.php';
         $database = new Database();
         $conn = $database->getConnection();

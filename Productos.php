@@ -69,7 +69,7 @@
           <input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" required>
         </div>
 
-        <!-- Selección de proveedor -->
+       
         <div class="col-md-4 position-relative">
           <label for="id_proveedor" class="form-label"><b>Proveedor</b></label>
           <select class="form-select" id="id_proveedor" name="id_proveedor" required>
@@ -135,19 +135,19 @@
     <div class="container mt-4">
     <h2>Registrar Pedido</h2>
     <form action="pedidos.php" method="POST" class="row g-3 needs-validation" novalidate>
-        <!-- Fecha -->
+        
         <div class="col-md-4">
             <label for="fecha" class="form-label"><b>Fecha de Pedido</b></label>
             <input type="date" class="form-control" id="fecha" name="fecha" required>
         </div>
 
-        <!-- Costo -->
+        
         <div class="col-md-4">
             <label for="costo" class="form-label"><b>Total</b></label>
             <input type="number" step="0.01" class="form-control" id="costo" name="costo" required>
         </div>
 
-        <!-- Cliente -->
+        
         <div class="col-md-4">
             <label for="id_cliente" class="form-label"><b>Cliente</b></label>
             <select class="form-control" id="id_cliente" name="id_cliente" required>
@@ -167,7 +167,7 @@
             </select>
         </div>
 
-        <!-- Producto -->
+        
         <div class="col-md-4">
             <label for="id_producto" class="form-label"><b>Producto</b></label>
             <select class="form-control" id="id_producto" name="id_producto" required>
@@ -184,19 +184,19 @@
             </select>
         </div>
 
-        <!-- Cantidad -->
+        
         <div class="col-md-4">
             <label for="cantidad" class="form-label"><b>Cantidad</b></label>
             <input type="number" class="form-control" id="cantidad" name="cantidad" required>
         </div>
 
-        <!-- Fecha de Entrega -->
+        
         <div class="col-md-4">
             <label for="entrega" class="form-label"><b>Fecha de Entrega</b></label>
             <input type="date" class="form-control" id="entrega" name="entrega" required>
         </div>
 
-        <!-- Botón de envío -->
+       
         <div class="col-12">
             <button class="btn btn-light" type="submit" style="background-color: rgb(149, 109, 150); color: white;">Registrar Pedido</button>
         </div>

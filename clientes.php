@@ -1,26 +1,26 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // Obtener datos del formulario
+    
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
     
-    // Validación de campos
+    
     if (!$nombre || !$telefono || !$direccion) {
         echo 'Por favor, completa todos los campos obligatorios.';
         exit();
     }
 
-    // Conectar a la base de datos
+    
     $database = new Database();
     $conn = $database->getConnection();
 
     if ($conn) {
         try {
-            // Insertar nuevo cliente
+            
             $sql = "INSERT INTO clientes (nombre, telefono, direccion)
                     VALUES (:nombre, :telefono, :direccion)";
             
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':telefono', $telefono);
             $stmt->bindParam(':direccion', $direccion);
 
-            // Ejecutar la consulta
+          
             if ($stmt->execute()) {
                 echo 'Cliente registrado con éxito.';
             } else {

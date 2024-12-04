@@ -1,5 +1,5 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn) {
         try {
             
-            // Preparar la consulta para insertar los datos en la tabla horarios
+           
             $sql = "INSERT INTO horarios (dias, horario) VALUES (:dias, :horario)";
             $stmt = $conn->prepare($sql);
 
-            // Vincular los parámetros
+            
             $stmt->bindParam(':dias', $dias);
             $stmt->bindParam(':horario', $horario);
 
-            // Ejecutar la consulta
+            
             if ($stmt->execute()) {
                 echo 'Registro exitoso.';
             } else {

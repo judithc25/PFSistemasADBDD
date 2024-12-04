@@ -1,5 +1,5 @@
 <?php
-require_once 'src/database.php'; // Conectar a la base de datos
+require_once 'src/database.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -19,18 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn) {
         try {
             
-            // Preparar la consulta para insertar los datos en la tabla proveedores
+            
             $sql = "INSERT INTO proveedores (nombre, direccion, telefono, numero_cuenta) 
                     VALUES (:nombre, :direccion, :telefono, :numero_cuenta)";
             $stmt = $conn->prepare($sql);
 
-            // Vincular los parámetros
+            
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':direccion', $direccion);
             $stmt->bindParam(':telefono', $telefono);
             $stmt->bindParam(':numero_cuenta', $numero_cuenta);
 
-            // Ejecutar la consulta
+            
             if ($stmt->execute()) {
                 echo 'Registro exitoso.';
             } else {

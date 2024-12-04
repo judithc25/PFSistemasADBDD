@@ -68,19 +68,19 @@
           <select class="form-control" id="id_salario" name="id_salario" required>
             <option value="">Selecciona un salario</option>
             <?php
-              // Conexión a la base de datos y obtener salarios
+             
               require_once 'src/database.php';
               $database = new Database();
               $conn = $database->getConnection();
 
               if ($conn) {
                 try {
-                  // Obtener todos los salarios
+                  
                   $sql = "SELECT id_salario, monto FROM salarios";
                   $stmt = $conn->prepare($sql);
                   $stmt->execute();
 
-                  // Mostrar los salarios en el campo select
+                  
                   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo "<option value='" . $row['id_salario'] . "'>" . $row['monto'] . "</option>";
                   }
