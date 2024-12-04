@@ -10,8 +10,8 @@
 
   </head>
   <div class="navbar">
-    <h2><b>Judith Bakery´s</b></h2>
-    <a href="index.php">Productos</a>
+    <h1><b>Judith Bakery´s</b></h1>
+    <a href="index.php">Inicio</a>
     <a href="Productos.php">Ventas</a>
     </div>
   <body>
@@ -84,21 +84,27 @@
         </select>
         </div>
         <div class="col-md-4 position-relative">
-          <label for="id_producto" class="form-label"><b>Producto</b></label>
-          <select class="form-control" id="id_producto" name="id_producto" required>
-            <option value="">Selecciona un producto</option>
-            <?php
-              // Obtener productos desde la base de datos
-              if ($conn) {
-                $stmt = $conn->prepare("SELECT id_producto, nombre FROM productos");
-                $stmt->execute();
-                $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($productos as $producto) {
-                  echo "<option value='{$producto['id_producto']}'>{$producto['nombre']}</option>";
-                }
-              }
-            ?>
-          </select>
+    <label for="id_horario" class="form-label"><b>Horario ID</b></label>
+    <select class="form-control" id="id_horario" name="id_horario" required>
+        <option value="">Selecciona un horario</option>
+        <?php
+        if ($conn) {
+            // Preparamos y ejecutamos la consulta
+            $stmt = $conn->prepare("SELECT id_horario, dias FROM horarios");
+            $stmt->execute();
+            $horarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Iteramos sobre los resultados
+            foreach ($horarios as $horario) {
+                echo "<option value='{$horario['id_horario']}'>{$horario['dias']}</option>";
+            }
+        }
+        ?>
+        </select>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-light" type="submit" style="background-color: rgb(149, 109, 150); color: white;">Registrar empleado</button>
         </div>
     </form>
 </div>
