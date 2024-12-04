@@ -1,0 +1,37 @@
+.navbar {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #8174A0;
+    display: flex;                 
+    align-items: center;           
+    justify-content: space-between;
+    padding: 10px 25px;
+}
+
+.navbar h1{
+    font-size: 60px;
+    color: #FFD2A0;
+}
+.navbar a {
+    margin-right: 10px;
+    margin-right: 10px;
+    color:white;
+    text-decoration: none;
+    transition: color 0.3s, font-size 0.3s;
+    padding: 2px;
+}
+
+.navbar a:hover{
+    color: #EFB6C8;
+    font-size: 25px;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 5px; 
+}
+
+body {
+    background-color: #e7e1cf;
+}
